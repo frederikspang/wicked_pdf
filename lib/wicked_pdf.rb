@@ -80,8 +80,6 @@ class WickedPdf
     raise "Error generating PDF\n Command Error: #{err}" if options[:raise_on_all_errors] && !err.empty?
     raise "PDF could not be generated!\n Command Error: #{err}" if pdf && pdf.rstrip.empty?
     pdf
-  rescue StandardError => e
-    raise "Failed to execute:\n#{command}\nError: #{e}"
   ensure
     generated_pdf_file.close! if generated_pdf_file && !return_file
   end
